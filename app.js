@@ -1,7 +1,13 @@
+require('dotenv').config()
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const db = require('./data/models').sequelize;
+
+db.authenticate()
+    .then(() => console.log('connection to db success'))
+    .catch((error) => console.error('Unable to connect to the database:', error))
 
 var indexRouter = require('./routes/index');
 var appointmentsRoutes = require('./routes/appointments');
