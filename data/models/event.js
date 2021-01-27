@@ -14,9 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Event.init({
-    startDate: DataTypes.DATE,
-    endDate: DataTypes.DATE,
-    title: DataTypes.STRING
+    startDate: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    endDate: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    } 
   }, {
     sequelize,
     modelName: 'Event',
